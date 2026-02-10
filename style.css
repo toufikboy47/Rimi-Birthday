@@ -1,0 +1,1203 @@
+/* Birthday Celebration Styles */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Nunito:wght@400;600&display=swap');
+
+:root {
+    --primary-pink: #ff8fab;
+    --secondary-pink: #ffb3c6;
+    --light-pink: #ffe5ec;
+    --soft-pink: #fff0f3;
+    --dark-pink: #c9184a;
+    --cream: #fffaf0;
+    --white: #ffffff;
+    --text-dark: #4a4a4a;
+    --text-light: #6b6b6b;
+    --shadow-soft: 0 8px 32px rgba(255, 143, 171, 0.15);
+    --shadow-hover: 0 15px 45px rgba(255, 143, 171, 0.25);
+    --gradient-warm: linear-gradient(135deg, #fff5f8 0%, #ffe5ec 50%, #fff0f5 100%);
+    --gradient-cream: linear-gradient(135deg, #fffaf0 0%, #fff5f8 100%);
+    --gradient-pink: linear-gradient(135deg, #ff8fab 0%, #ffb3c6 100%);
+}
+
+html { scroll-behavior: smooth; overflow-x: hidden; }
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--gradient-warm);
+    min-height: 100vh;
+    color: var(--text-dark);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Music Player */
+.music-player {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1500;
+}
+
+.music-btn {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff8fab 0%, #ffb3c6 100%);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(255, 143, 171, 0.4);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.music-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(255, 143, 171, 0.5);
+}
+
+.music-btn.playing {
+    animation: musicPulse 1s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 143, 171, 0.5); }
+    50% { box-shadow: 0 0 0 15px rgba(255, 143, 171, 0); }
+}
+
+.music-icon {
+    font-size: 1.6rem;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.music-btn:hover .music-icon {
+    transform: scale(1.1);
+}
+
+/* Music Player Responsive */
+@media (max-width: 768px) {
+    .music-player {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .music-btn {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .music-icon {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .music-player {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .music-btn {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .music-icon {
+        font-size: 1.2rem;
+    }
+}
+
+/* Floating Hearts */
+.hearts-container, .stars-container, .petals-container, .confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 20px;
+    animation: floatUp 12s ease-in infinite;
+    opacity: 0;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh) rotate(0deg) scale(0.5); opacity: 0; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(-100px) rotate(360deg) scale(1); opacity: 0; }
+}
+
+.star {
+    position: absolute;
+    font-size: 8px;
+    animation: twinkle 4s ease-in-out infinite;
+    opacity: 0;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 0.8; transform: scale(1); }
+}
+
+.petal {
+    position: absolute;
+    font-size: 25px;
+    animation: petalFall 15s linear infinite;
+    opacity: 0;
+}
+
+@keyframes petalFall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.8; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    animation: confettiFall 4s ease-in-out infinite;
+}
+
+@keyframes confettiFall {
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+/* Welcome Overlay */
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 1;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.welcome-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.welcome-content {
+    text-align: center;
+    padding: 40px;
+    animation: welcomeFloat 3s ease-in-out infinite;
+}
+
+@keyframes welcomeFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.welcome-hearts {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.welcome-hearts span {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.welcome-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: var(--dark-pink);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.welcome-message {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-bottom: 35px;
+}
+
+.welcome-btn {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 15px 45px;
+    background: var(--gradient-pink);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-soft);
+}
+
+.welcome-btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-hover);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Allah Wishes Popup */
+.allah-wishes-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.allah-wishes-popup.show {
+    display: flex;
+    opacity: 1;
+}
+
+.allah-wishes-content {
+    background: linear-gradient(135deg, #fff 0%, #f8f8f8 100%);
+    padding: 50px 40px;
+    border-radius: 25px;
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: popupSlideIn 0.6s ease;
+    border: 3px solid #c9a227;
+}
+
+@keyframes popupSlideIn {
+    from { transform: scale(0.8) translateY(50px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.allah-symbol {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    animation: symbolGlow 2s ease-in-out infinite;
+}
+
+@keyframes symbolGlow {
+    0%, 100% { filter: drop-shadow(0 0 10px #c9a227); }
+    50% { filter: drop-shadow(0 0 25px #c9a227); }
+}
+
+.allah-wishes-content h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #2d5a27;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.allah-message {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.allah-doa {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 25px 0;
+    border: 1px solid #a5d6a7;
+}
+
+.allah-doa p {
+    font-family: 'Amiri', serif;
+    font-size: 1.5rem;
+    color: #1b5e20;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.doa-translation {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    color: #388e3c;
+    font-style: italic;
+}
+
+.close-allah-btn {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 12px 35px;
+    background: linear-gradient(135deg, #2d5a27 0%, #4caf50 100%);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 5px 20px rgba(45, 90, 39, 0.3);
+}
+
+.close-allah-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(45, 90, 39, 0.4);
+}
+
+/* Main Container */
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 40px 20px 30px;
+}
+
+.header-decoration { margin: 12px 0; }
+
+.decoration-item {
+    font-size: 1.8rem;
+    margin: 0 8px;
+    display: inline-block;
+    animation: gentleSway 3s ease-in-out infinite;
+}
+
+.decoration-item:nth-child(2) { animation-delay: 0.5s; }
+.decoration-item:nth-child(3) { animation-delay: 1s; }
+
+@keyframes gentleSway {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff8fab 0%, #c9184a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 15px 0 8px;
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 15px rgba(255, 143, 171, 0.4)); }
+    to { filter: drop-shadow(0 0 30px rgba(255, 143, 171, 0.7)); }
+}
+
+.subtitle {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    color: var(--dark-pink);
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+
+.header-message {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 15px auto 10px;
+    line-height: 1.7;
+}
+
+.header-cake {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.cake-emoji {
+    font-size: 6rem;
+    display: inline-block;
+    animation: cakePop 1s ease-out forwards, cakeBounce 2s ease-in-out infinite 1s;
+}
+
+@keyframes cakePop {
+    0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+    60% { transform: scale(1.2) rotate(10deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes cakeBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Birthday Cake Section */
+.cake-section {
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.cake-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cake {
+    position: relative;
+    width: 200px;
+    animation: cakeBounce 2s ease-in-out infinite;
+}
+
+.cake-top {
+    width: 200px;
+    height: 40px;
+    background: linear-gradient(135deg, #ff8fab 0%, #ffb3c6 100%);
+    border-radius: 50% 50% 0 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.candle {
+    width: 12px;
+    height: 40px;
+    background: linear-gradient(to right, #fff 0%, #f0f0f0 50%, #fff 100%);
+    border-radius: 3px;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.flame {
+    width: 15px;
+    height: 25px;
+    background: linear-gradient(to bottom, #fff 0%, #ffcc00 50%, #ff6600 100%);
+    border-radius: 50% 50% 20% 20%;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: flicker 0.5s ease-in-out infinite alternate;
+    box-shadow: 0 0 20px #ff6600, 0 0 40px #ffcc00;
+}
+
+@keyframes flicker {
+    0% { transform: translateX(-50%) scale(1); opacity: 1; }
+    100% { transform: translateX(-50%) scale(1.1); opacity: 0.8; }
+}
+
+.cake-layer {
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.layer-1 { background: linear-gradient(135deg, #ff8fab 0%, #ffb3c6 100%); }
+.layer-2 { width: 180px; background: linear-gradient(135deg, #ffb3c6 0%, #ffccd5 100%); }
+.layer-3 { width: 160px; background: linear-gradient(135deg, #ffccd5 0%, #ffe5ec 100%); }
+
+.cake-plate {
+    width: 220px;
+    height: 15px;
+    background: linear-gradient(to bottom, #e0e0e0 0%, #c0c0c0 100%);
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.cake-message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: var(--dark-pink);
+    margin-top: 25px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Birthday Wishes Section */
+.wishes-section {
+    padding: 25px 20px;
+    margin: 0;
+}
+
+.wishes-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: var(--dark-pink);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.wishes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 8px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.wish-card {
+    background: var(--white);
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid var(--light-pink);
+    padding: 20px 15px;
+}
+
+.wish-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary-pink);
+}
+
+.wish-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 12px;
+}
+
+.wish-author { font-size: 1.8rem; }
+
+/* Letters Section */
+.letters-section {
+    padding: 25px 20px;
+    margin: 0;
+    text-align: center;
+}
+
+.letters-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: var(--dark-pink);
+    margin-bottom: 25px;
+}
+
+.letters-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.letter-wrapper { position: relative; }
+
+.letter-cover {
+    background: linear-gradient(135deg, #ff8fab 0%, #ffb3c6 50%, #ffccd5 100%);
+    border-radius: 18px;
+    padding: 35px 25px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: var(--shadow-soft);
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px dashed var(--white);
+}
+
+.letter-cover:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+}
+
+.cover-content {
+    text-align: center;
+    color: white;
+}
+
+.cover-icon {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 12px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.cover-content p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.letter-content {
+    background: var(--white);
+    border-radius: 18px;
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.5s ease;
+    border: 2px solid var(--light-pink);
+    display: none;
+}
+
+.letter-content.show {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.letter {
+    padding: 25px 20px;
+}
+
+.letter-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.letter-icon { font-size: 1.8rem; }
+
+.letter-header h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.6rem;
+    color: var(--dark-pink);
+    margin: 0;
+}
+
+.letter-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.letter-signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.1rem;
+    color: var(--dark-pink);
+    margin-top: 15px;
+}
+
+.letter-cover.opened { display: none; }
+
+/* Gallery Section */
+.gallery-section {
+    padding: 20px 10px 50px;
+}
+
+.gallery-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 25px 0 30px;
+    padding: 0 20px;
+}
+
+.filter-btn {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 28px;
+    background: var(--white);
+    border: 2px solid var(--secondary-pink);
+    border-radius: 30px;
+    color: var(--dark-pink);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--gradient-pink);
+    border-color: var(--primary-pink);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+. No {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.5s ease;
+}
+
+.gallery-item.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    position: absolute;
+    pointer-events: none;
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.gallery-item:hover { transform: translateY(-8px); }
+
+.photo-frame {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: var(--shadow-soft);
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.photo-frame:hover {
+    box-shadow: var(--shadow-hover);
+    transform: scale(1.02);
+}
+
+.photo-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    background: var(--gradient-cream);
+    transition: all 0.4s ease;
+}
+
+.photo-icon {
+    font-size: 3.5rem;
+    margin-bottom: 12px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.photo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 18px;
+    background: linear-gradient(to top, rgba(255, 245, 248, 0.98) 0%, rgba(255, 245, 248, 0.9) 70%, transparent 100%);
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.photo-frame:hover .photo-overlay { transform: translateY(0); }
+
+.photo-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: var(--dark-pink);
+    margin-bottom: 5px;
+}
+
+.photo-date {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.photo-hearts { font-size: 1.2rem; }
+.photo-hearts span { margin: 0 4px; }
+
+/* Quote Section */
+.quote-section {
+    padding: 40px 20px;
+    margin: 0;
+}
+
+.quote-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    background: var(--white);
+    border-radius: 22px;
+    box-shadow: var(--shadow-soft);
+}
+
+.quote-hearts {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.quote-hearts span {
+    margin: 0 6px;
+    display: inline-block;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.quote-hearts span:nth-child(2) { animation-delay: 0.3s; }
+
+.quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--text-dark);
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.quote-author {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    color: var(--dark-pink);
+    font-style: normal;
+}
+
+/* Memory Lane */
+.memory-lane {
+    padding: 40px 20px;
+    margin: 0;
+}
+
+.lane-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2rem;
+    color: var(--dark-pink);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.timeline {
+    max-width: 650px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 35px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--secondary-pink), var(--dark-pink));
+    border-radius: 3px;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 20px 0 20px 30px;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: slideIn 0.6s ease forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.2s; }
+.timeline-item:nth-child(2) { animation-delay: 0.4s; }
+.timeline-item:nth-child(3) { animation-delay: 0.6s; }
+.timeline-item:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes slideIn {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -28px;
+    top: 25px;
+    width: 14px;
+    height: 14px;
+    background: var(--gradient-pink);
+    border-radius: 50%;
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 3px var(--secondary-pink);
+}
+
+.timeline-content {
+    background: var(--white);
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateX(5px);
+}
+
+.timeline-content h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    color: var(--dark-pink);
+    margin-bottom: 8px;
+}
+
+.timeline-content p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.timeline-date {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-pink);
+    background: var(--light-pink);
+    padding: 4px 12px;
+    border-radius: 18px;
+    display: inline-block;
+}
+
+/* Footer */
+.footer {
+    padding: 40px 20px 30px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer-content {
+    background: var(--white);
+    padding: 35px 28px;
+    border-radius: 22px;
+    box-shadow: var(--shadow-soft);
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.footer-hearts {
+    font-size: 2.2rem;
+    margin-bottom: 18px;
+}
+
+.footer-hearts span {
+    margin: 0 6px;
+    display: inline-block;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.footer-hearts span:nth-child(2) { animation-delay: 0.3s; }
+.footer-hearts span:nth-child(4) { animation-delay: 0.6s; }
+
+.footer-message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: var(--dark-pink);
+    margin-bottom: 10px;
+}
+
+.footer-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.footer-date {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.85rem;
+    color: var(--secondary-pink);
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+    .container { max-width: 1100px; }
+    .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+}
+
+@media (max-width: 1200px) {
+    .container { max-width: 1000px; }
+    .title { font-size: 3.8rem; }
+    .subtitle { font-size: 2.6rem; }
+}
+
+@media (max-width: 992px) {
+    .container { max-width: 800px; padding: 15px; }
+    .header { padding: 35px 15px 25px; }
+    .title { font-size: 3.2rem; }
+    .subtitle { font-size: 2.2rem; }
+    .cake { transform: scale(0.85); }
+    .cake-emoji { font-size: 5rem; }
+    .wishes-container { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .letters-container { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+}
+
+@media (max-width: 768px) {
+    .title { font-size: 2.8rem; }
+    .subtitle { font-size: 2rem; }
+    .welcome-title { font-size: 2.3rem; }
+    .welcome-content { padding: 35px 25px; }
+    .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; }
+    .filter-btn { padding: 10px 20px; font-size: 0.9rem; }
+    .quote-content { padding: 35px 25px; }
+    .quote-text { font-size: 1.2rem; }
+    .cake { transform: scale(0.7); }
+    .cake-emoji { font-size: 4.5rem; }
+    .wishes-container { grid-template-columns: 1fr; gap: 15px; }
+    .wishes-title { font-size: 2.2rem; }
+    .letters-container { grid-template-columns: 1fr; gap: 15px; }
+    .letters-title { font-size: 2.2rem; }
+    .memory-lane { padding: 35px 15px; }
+    .timeline { max-width: 500px; }
+    .footer-content { max-width: 450px; padding: 30px 22px; }
+    
+    /* Allah Wishes Popup Responsive */
+    .allah-wishes-content { padding: 40px 30px; max-width: 450px; }
+    .allah-symbol { font-size: 4rem; }
+    .allah-wishes-content h2 { font-size: 2.2rem; }
+    .allah-message { font-size: 1.1rem; }
+    .allah-doa { padding: 18px; }
+    .allah-doa p { font-size: 1.3rem; }
+    .doa-translation { font-size: 0.85rem; }
+    .close-allah-btn { font-size: 1rem; padding: 11px 30px; }
+}
+
+@media (max-width: 576px) {
+    .container { max-width: 100%; padding: 12px; }
+    .header { padding: 28px 12px 18px; }
+    .header-decoration { margin: 10px 0; }
+    .decoration-item { font-size: 1.5rem; margin: 0 5px; }
+    .title { font-size: 2.4rem; margin: 12px 0 6px; }
+    .subtitle { font-size: 1.8rem; margin-bottom: 10px; }
+    .header-message { font-size: 1rem; padding: 0 8px; }
+    .welcome-title { font-size: 2rem; }
+    .welcome-message { font-size: 1.1rem; }
+    .welcome-content { padding: 28px 18px; }
+    .welcome-btn { font-size: 1rem; padding: 13px 35px; }
+    .welcome-hearts { font-size: 2.5rem; margin-bottom: 25px; }
+    .cake { transform: scale(0.6); }
+    .cake-emoji { font-size: 3.5rem; }
+    .cake-message { font-size: 1.2rem; margin-top: 18px; }
+    .cake-section { padding: 20px 15px; }
+    .wishes-section, .letters-section { padding: 25px 12px; }
+    .wishes-title, .letters-title { font-size: 2rem; margin-bottom: 18px; }
+    .wish-card, .letter { padding: 20px 15px; }
+    .wish-text, .letter-text { font-size: 0.95rem; }
+    .gallery-section { padding: 18px 10px 40px; }
+    .gallery-grid { grid-template-columns: 1fr; gap: 15px; }
+    .photo-placeholder { height: 350px; }
+    .photo-icon { font-size: 3rem; }
+    .photo-text { font-size: 1rem; }
+    .photo-overlay { padding: 15px; }
+    .photo-title { font-size: 1.3rem; }
+    .photo-date { font-size: 0.8rem; }
+    .quote-section { padding: 35px 15px; }
+    .quote-content { padding: 30px 20px; border-radius: 18px; }
+    .quote-hearts { font-size: 2rem; margin-bottom: 18px; }
+    .quote-text { font-size: 1.1rem; line-height: 1.6; }
+    .quote-author { font-size: 1.2rem; }
+    .memory-lane { padding: 35px 12px; }
+    .lane-title { font-size: 2rem; margin-bottom: 35px; }
+    .timeline { padding-left: 28px; max-width: 100%; }
+    .timeline::before { left: 10px; }
+    .timeline-marker { left: -24px; width: 12px; height: 12px; }
+    .timeline-item { padding: 18px 0 18px 25px; }
+    .timeline-content { padding: 18px; border-radius: 12px; }
+    .timeline-content h3 { font-size: 1.3rem; }
+    .timeline-content p { font-size: 0.9rem; }
+    .timeline-date { font-size: 0.75rem; padding: 4px 10px; }
+    .footer { padding: 35px 12px 25px; margin-top: 15px; }
+    .footer-content { padding: 28px 20px; border-radius: 18px; max-width: 100%; }
+    .footer-hearts { font-size: 2rem; margin-bottom: 15px; }
+    .footer-message { font-size: 1.3rem; }
+    .footer-quote { font-size: 0.95rem; }
+    .footer-date { font-size: 0.8rem; }
+    
+    /* Allah Wishes Popup Responsive */
+    .allah-wishes-content { padding: 35px 25px; max-width: 90%; border-radius: 20px; }
+    .allah-symbol { font-size: 3.5rem; margin-bottom: 15px; }
+    .allah-wishes-content h2 { font-size: 2rem; margin-bottom: 20px; }
+    .allah-message { font-size: 1rem; line-height: 1.6; margin-bottom: 10px; }
+    .allah-doa { padding: 15px; margin: 20px 0; border-radius: 12px; }
+    .allah-doa p { font-size: 1.2rem; margin-bottom: 8px; }
+    .doa-translation { font-size: 0.8rem; }
+    .close-allah-btn { font-size: 0.95rem; padding: 10px 28px; margin-top: 15px; border-radius: 25px; }
+}
+
+@media (max-width: 480px) {
+    .header { padding: 25px 10px 15px; }
+    .title { font-size: 2rem; }
+    .subtitle { font-size: 1.6rem; }
+    .welcome-title { font-size: 1.8rem; }
+    .cake { transform: scale(0.5); }
+    .cake-emoji { font-size: 3rem; }
+    .wishes-title, .letters-title { font-size: 1.8rem; }
+    .wish-card, .letter { padding: 18px 12px; }
+    .photo-placeholder { height: 320px; }
+    .photo-icon { font-size: 2.5rem; }
+    .quote-content { padding: 25px 15px; }
+    .quote-text { font-size: 1rem; }
+    
+    /* Allah Wishes Popup Responsive */
+    .allah-wishes-content { padding: 30px 20px; max-width: 95%; border-radius: 18px; border-width: 2px; }
+    .allah-symbol { font-size: 3rem; margin-bottom: 12px; }
+    .allah-wishes-content h2 { font-size: 1.8rem; margin-bottom: 18px; }
+    .allah-message { font-size: 0.95rem; }
+    .allah-doa { padding: 12px; margin: 18px 0; }
+    .allah-doa p { font-size: 1.1rem; }
+    .doa-translation { font-size: 0.75rem; }
+    .close-allah-btn { font-size: 0.9rem; padding: 10px 25px; }
+}
+
+@media (max-width: 400px) {
+    .title { font-size: 1.8rem; }
+    .subtitle { font-size: 1.4rem; }
+    .decoration-item { font-size: 1.3rem; }
+    .welcome-title { font-size: 1.6rem; }
+    .cake-emoji { font-size: 2.5rem; }
+    .photo-placeholder { height: 160px; }
+    .footer-message { font-size: 1.2rem; }
+    
+    /* Allah Wishes Popup Responsive */
+    .allah-wishes-content { padding: 25px 15px; max-width: 98%; border-radius: 15px; }
+    .allah-symbol { font-size: 2.5rem; margin-bottom: 10px; }
+    .allah-wishes-content h2 { font-size: 1.6rem; margin-bottom: 15px; }
+    .allah-message { font-size: 0.9rem; }
+    .allah-doa { padding: 10px; margin: 15px 0; }
+    .allah-doa p { font-size: 1rem; }
+    .doa-translation { font-size: 0.7rem; }
+    .close-allah-btn { font-size: 0.85rem; padding: 9px 22px; }
+}
+
+@media (max-width: 360px) {
+    .container { padding: 8px; }
+    .title { font-size: 1.6rem; }
+    .subtitle { font-size: 1.3rem; }
+    .photo-placeholder { height: 280px; }
+    .timeline-content { padding: 15px; }
+    .timeline-content h3 { font-size: 1.2rem; }
+}

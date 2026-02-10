@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Rimi! 🎂</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Gentle Stars Background -->
+    <div class="stars-container" id="starsContainer"></div>
+
+    <!-- Soft Petals -->
+    <div class="petals-container" id="petalsContainer"></div>
+
+    <!-- Confetti Container -->
+    <div class="confetti-container" id="confettiContainer"></div>
+
+    <!-- Welcome Overlay -->
+    <div class="welcome-overlay" id="welcomeOverlay">
+        <div class="welcome-content">
+            <div class="welcome-hearts">
+                <span>🎂</span><span>🎈</span><span>🎁</span>
+            </div>
+            <h1 class="welcome-title">Rimi's Birthday Surprise!</h1>
+            <p class="welcome-message">A very special birthday for Rimi!</p>
+            <button class="welcome-btn" id="welcomeBtn">Celebrate Rimi's Birthday! 🎉</button>
+        </div>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player" id="musicPlayer">
+        <button class="music-btn" id="musicBtn" title="Play Background Music">
+            <span class="music-icon" id="musicIcon">🎵</span>
+        </button>
+        <audio id="birthdayAudio" loop>
+            <source src="musicc.mpeg" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Allah Wishes Popup -->
+    <div class="allah-wishes-popup" id="allahWishesPopup">
+        <div class="allah-wishes-content">
+            <div class="allah-symbol">☪</div>
+            <h2>🌙 الحمد لله 🌙</h2>
+            <p class="allah-message">May Allah bless you with endless joy, health, and prosperity!</p>
+            <p class="allah-message">May all your dreams and prayers be answered!</p>
+            <p class="allah-message">May your life be filled with Allah's infinite blessings!</p>
+            <div class="allah-doa">
+                <p>"Rabbi zidni ilma waqzini ma' al-salihin"</p>
+                <span class="doa-translation">- Increase me in knowledge and keep me with the righteous</span>
+            </div>
+            <button class="close-allah-btn" id="closeAllahBtn">آمين (Amen)</button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-decoration">
+                <span class="decoration-item">🎂</span>
+                <span class="decoration-item">🎈</span>
+                <span class="decoration-item">🎁</span>
+            </div>
+            <h1 class="title">Happy Birthday Rimi!</h1>
+            <h2 class="subtitle">Wishing You All the Joy & Love</h2>
+            <div class="header-decoration">
+                <span class="decoration-item">💝</span>
+                <span class="decoration-item">🌟</span>
+                <span class="decoration-item">💐</span>
+            </div>
+            <p class="header-message">Today is all about you - the most amazing person!</p>
+            <!-- <div class="header-cake">
+                <span class="cake-emoji">🎂</span>
+            </div> -->
+        </header>
+
+        <!-- Birthday Cake Section -->
+        <section class="cake-section">
+            <div class="cake-container">
+                <div class="cake">
+                    <div class="cake-top">
+                        <div class="candle">
+                            <div class="flame" id="flame"></div>
+                        </div>
+                    </div>
+                    <div class="cake-layer layer-1"></div>
+                    <div class="cake-layer layer-2"></div>
+                    <div class="cake-layer layer-3"></div>
+                    <div class="cake-plate"></div>
+                </div>
+                <p class="cake-message">Make a wish! 🎂</p>
+            </div>
+        </section>
+
+        <!-- Birthday Wishes Section -->
+        <section class="wishes-section">
+            <h2 class="wishes-title">💕 Sweet Birthday Wishes 💕</h2>
+            <div class="wishes-container">
+                <div class="wish-card">
+                    <p class="wish-text">Beautiful princess, may your special day be as magical and radiant as your smile. You deserve all the love and happiness in the world!</p>
+                    <span class="wish-author">👑</span>
+                </div>
+                <div class="wish-card">
+                    <p class="wish-text">To the most amazing woman I know - may your year ahead be filled with endless dreams, beautiful moments, and all your heart desires!</p>
+                    <span class="wish-author">🌹</span>
+                </div>
+                <div class="wish-card">
+                    <p class="wish-text">Happy Birthday, beautiful! Your kindness lights up every room. Wishing you a day as special and lovely as you are!</p>
+                    <span class="wish-author">💐</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Letters Section -->
+        <section class="letters-section">
+            <h2 class="letters-title">💌 Letters for You 💌</h2>
+            <div class="letters-container">
+                <!-- Letter 1 -->
+                <div class="letter-wrapper">
+                    <div class="letter-cover" id="letterCover1" data-letter="1">
+                        <div class="cover-content">
+                            <span class="cover-icon">💌</span>
+                            <p>Click to Open</p>
+                        </div>
+                    </div>
+                    <div class="letter-content hidden" id="letterContent1">
+                        <div class="letter">
+                            <div class="letter-header">
+                                <span class="letter-icon">💕</span>
+                                <h3>Letter One</h3>
+                            </div>
+                            <p class="letter-text">My dearest beautiful soul,</p>
+                            <p class="letter-text">On this special day, I want you to know how incredibly special you are to me. Your smile brightens my darkest days, and your kindness inspires me to be a better person. Happy Birthday to the most amazing woman I know!</p>
+                            <p class="letter-signature">Forever yours 💝</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Letter 2 -->
+                <div class="letter-wrapper">
+                    <div class="letter-cover" id="letterCover2" data-letter="2">
+                        <div class="cover-content">
+                            <span class="cover-icon">💌</span>
+                            <p>Click to Open</p>
+                        </div>
+                    </div>
+                    <div class="letter-content hidden" id="letterContent2">
+                        <div class="letter">
+                            <div class="letter-header">
+                                <span class="letter-icon">🌹</span>
+                                <h3>Letter Two</h3>
+                            </div>
+                            <p class="letter-text">To my princess,</p>
+                            <p class="letter-text">Every moment spent with you feels like a beautiful dream. You are graceful, kind, and absolutely stunning inside and out. May your birthday be as magical as you make my life every single day.</p>
+                            <p class="letter-signature">With all my love 🌹</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Letter 3 -->
+                <div class="letter-wrapper">
+                    <div class="letter-cover" id="letterCover3" data-letter="3">
+                        <div class="cover-content">
+                            <span class="cover-icon">💌</span>
+                            <p>Click to Open</p>
+                        </div>
+                    </div>
+                    <div class="letter-content hidden" id="letterContent3">
+                        <div class="letter">
+                            <div class="letter-header">
+                                <span class="letter-icon">🌸</span>
+                                <h3>Letter Three</h3>
+                            </div>
+                            <p class="letter-text">Sweetest heart,</p>
+                            <p class="letter-text">You have this incredible ability to make everyone around you feel loved and valued. Today, I want to remind you how much you are loved and appreciated. Thank you for being the wonderful person you are.</p>
+                            <p class="letter-signature">Always and forever 🌸</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Letter 4 -->
+                <div class="letter-wrapper">
+                    <div class="letter-cover" id="letterCover4" data-letter="4">
+                        <div class="cover-content">
+                            <span class="cover-icon">💌</span>
+                            <p>Click to Open</p>
+                        </div>
+                    </div>
+                    <div class="letter-content hidden" id="letterContent4">
+                        <div class="letter">
+                            <div class="letter-header">
+                                <span class="letter-icon">👑</span>
+                                <h3>Letter Four</h3>
+                            </div>
+                            <p class="letter-text">My queen,</p>
+                            <p class="letter-text">Birthdays come and go, but the love and joy you bring to this world stays forever. You deserve all the happiness in the universe. Here's to another year of your beautiful existence making the world more beautiful!</p>
+                            <p class="letter-signature">King of your heart 👑</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Letter 5 -->
+                <div class="letter-wrapper">
+                    <div class="letter-cover" id="letterCover5" data-letter="5">
+                        <div class="cover-content">
+                            <span class="cover-icon">💌</span>
+                            <p>Click to Open</p>
+                        </div>
+                    </div>
+                    <div class="letter-content hidden" id="letterContent5">
+                        <div class="letter">
+                            <div class="letter-header">
+                                <span class="letter-icon">💖</span>
+                                <h3>Letter Five</h3>
+                            </div>
+                            <p class="letter-text">My love,</p>
+                            <p class="letter-text">As you blow out your candles today, know that every wish you make will come true because you are that special. You are loved beyond words, appreciated beyond measure, and cherished beyond compare.</p>
+                            <p class="letter-signature">Endlessly in love 💖</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Filter -->
+        <div class="gallery-filter">
+            <button class="filter-btn active" data-filter="all">All Memories</button>
+        </div>
+
+        <!-- Photo Gallery Grid -->
+        <section class="gallery-section">
+            <div class="gallery-grid">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item">
+                    <div class="photo-frame">
+                        <div class="photo-placeholder">
+                            <span class="photo-icon"><img src="rimi1.jpeg"></span>                            
+                        </div>
+                        <div class="photo-overlay">
+                            <h3 class="photo-title">First Adventure</h3>
+                            <p class="photo-date">January 2025</p>
+                            <div class="photo-hearts">
+                                <span>❤️</span><span>💕</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item">
+                    <div class="photo-frame">
+                        <div class="photo-placeholder">
+                            <span class="photo-icon"><img src="rimi2.jpeg" alt=""></span>
+                        </div>
+                        <div class="photo-overlay">
+                            <h3 class="photo-title">Special Day</h3>
+                            <p class="photo-date">February 2025</p>
+                            <div class="photo-hearts">
+                                <span>💖</span><span>💗</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item">
+                    <div class="photo-frame">
+                        <div class="photo-placeholder">
+                            <span class="photo-icon"><img src="rimi3.jpeg" alt=""></span>
+                        </div>
+                        <div class="photo-overlay">
+                            <h3 class="photo-title">Together</h3>
+                            <p class="photo-date">March 2025</p>
+                            <div class="photo-hearts">
+                                <span>💕</span><span>💓</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item">
+                    <div class="photo-frame">
+                        <div class="photo-placeholder">
+                            <span class="photo-icon"><img src="rimi4.jpeg" alt=""></span>
+                        </div>
+                        <div class="photo-overlay">
+                            <h3 class="photo-title">Celebration</h3>
+                            <p class="photo-date">April 2025</p>
+                            <div class="photo-hearts">
+                                <span>💖</span><span>💝</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item">
+                    <div class="photo-frame">
+                        <div class="photo-placeholder">
+                            <span class="photo-icon"><img src="rimi5.jpeg" alt=""></span>
+                        </div>
+                        <div class="photo-overlay">
+                            <h3 class="photo-title">Golden Sunset</h3>
+                            <p class="photo-date">May 2025</p>
+                            <div class="photo-hearts">
+                                <span>💗</span><span>💖</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item">
+                    <div class="photo-frame">
+                        <div class="photo-placeholder">
+                            <span class="photo-icon"><img src="rimi6.jpeg" style="max-height: 350px;"></span>
+                        </div>
+                        <div class="photo-overlay">
+                            <h3 class="photo-title">Spring Days</h3>
+                            <p class="photo-date">June 2025</p>
+                            <div class="photo-hearts">
+                                <span>💕</span><span>💖</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </section>
+
+        <!-- Memory Quote Section -->
+        <section class="quote-section">
+            <div class="quote-content">
+                <div class="quote-hearts">
+                    <span>💕</span><span>💖</span><span>💕</span>
+                </div>
+                <blockquote class="quote-text">
+                    "The best thing to hold onto in life is each other."
+                </blockquote>
+                <cite class="quote-author">— Audrey Hepburn</cite>
+            </div>
+        </section>
+
+      
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-hearts">
+                    <span>🎂</span><span>🎈</span><span>🎁</span><span>💝</span><span>🎉</span>
+                </div>
+                <p class="footer-message">Made with love for Rimi 💕</p>
+                <p class="footer-quote">Happy Birthday! May all your dreams come true! 🌟</p>
+                <p class="footer-date">2026</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
